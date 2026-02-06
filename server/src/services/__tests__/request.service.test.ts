@@ -1,4 +1,3 @@
-// Jest unit test for request.service - mocks Request model methods
 import { requestService } from "../request.service";
 
 jest.mock("../../models/Request", () => ({
@@ -13,7 +12,6 @@ const RequestModel = require("../../models/Request").default;
 
 describe("requestService.getList (unit)", () => {
   beforeEach(() => {
-    // mock chainable find().populate().sort().skip().limit().lean()
     (RequestModel.find as jest.Mock).mockImplementation(() => ({
       populate: () => ({
         sort: () => ({
