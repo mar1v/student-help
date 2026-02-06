@@ -12,6 +12,23 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response) {
+      console.error("❌ API Error Details:");
+      console.error("Status:", error.response.status);
+      console.error("Data:", error.response.data);
+      console.error("Headers:", error.response.headers);
+    } else if (error.request) {
+      console.error("❌ No response received:", error.request);
+    } else {
+      console.error("❌ Error setting up request:", error.message);
+    }
+    return Promise.reject(error);
+  },
+);
+
 export function getUserFromToken() {
   const token = localStorage.getItem("token");
   if (!token) return null;
