@@ -66,7 +66,7 @@ export default function CreateRequest() {
             <button
               disabled={loading}
               onClick={submit}
-              className="px-4 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white font-semibold"
+              className="w-full sm:w-auto px-4 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white font-semibold"
             >
               {loading ? "Створюємо..." : "Створити"}
             </button>

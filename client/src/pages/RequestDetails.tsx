@@ -78,16 +78,16 @@ export default function RequestDetails() {
               placeholder="Опис"
               rows={4}
             />
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={saveEdit}
-                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white font-semibold"
+                className="w-full sm:w-auto px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white font-semibold"
               >
                 Зберегти
               </button>
               <button
                 onClick={() => setIsEditing(false)}
-                className="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-white font-semibold"
+                className="w-full sm:w-auto px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-white font-semibold"
               >
                 Скасувати
               </button>
@@ -149,7 +149,7 @@ export default function RequestDetails() {
         />
         <button
           onClick={respond}
-          className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white font-semibold"
+          className="w-full sm:w-auto px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white font-semibold"
         >
           Відповісти
         </button>

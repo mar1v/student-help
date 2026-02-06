@@ -2,16 +2,33 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../api/auth.api";
 
+const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const submit = async () => {
-    const res = await login({ email, password });
-    localStorage.setItem("token", res.data.token);
-    navigate("/");
+    if (!emailRe.test(email)) {
+      setError("Невірний email");
+      return;
+    }
+    if (password.length < 8) {
+      setError("Пароль має містити щонайменше 8 символів");
+      return;
+    }
+
+    try {
+      const res = await login({ email, password });
+      localStorage.setItem("token", res.data.token);
+      navigate("/");
+    } catch (err: any) {
+      setError(err?.response?.data?.message || err.message || "Error");
+    }
   };
+
+  const [error, setError] = useState("");
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-950">

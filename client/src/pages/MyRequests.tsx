@@ -50,18 +50,20 @@ export default function MyRequests() {
   };
 
   return (
-    <div className=" max-w-5xl mx-auto p-6 sm:p-10">
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="text-2xl font-bold text-slate-100">Мої запити</h2>
-        <div className="flex items-center gap-2">
+    <div className="max-w-5xl mx-auto p-6 sm:p-10">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-100">
+          Мої запити
+        </h2>
+        <div className="w-full sm:w-auto flex items-center justify-end">
           <input
             value={search}
             onChange={(e) => {
               setPage(1);
               setSearch(e.target.value);
             }}
-            placeholder="Пошук..."
-            className="px-3 py-2 rounded-md bg-slate-800 text-slate-100 border border-slate-700 focus:outline-none"
+            placeholder="Пошук за темою"
+            className="w-full sm:w-64 px-3 py-2 rounded-md bg-slate-800 text-slate-100 border border-slate-700 focus:outline-none"
           />
         </div>
       </div>
